@@ -5,10 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Homework1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="709" Width="826">
+    <Window.Resources>
+        <ControlTemplate TargetType="Button" x:Key="ButtonTemplate">
+            <Border CornerRadius="25"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Background="{TemplateBinding Background}"
+                    Height="30"
+                    Width="{TemplateBinding Width}" >
+                <ContentControl Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}" />
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid Margin="0,0,2,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="2"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -22,25 +37,29 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Image Grid.RowSpan="2" Source="Resources/manager.png"/>
+                <Image x:Name="ProfileImage" 
+                       Grid.RowSpan="2"
+                       Source="Resources/manager.png"/>
                 <Label x:Name="LoginLabel"
                     Content="Login" Grid.Column="1" VerticalAlignment="Bottom"/>
                 <Label x:Name="RoleLabel"
                        Content="Manager" Grid.Column="1" Grid.Row="1"/>
             </Grid>
             <TextBlock Background="Black" Height="2"/>
-            <Label Content="Control elements" HorizontalAlignment="Center" Style="{StaticResource LabelStyle}"/>
+            <Label Content="Control panel" HorizontalAlignment="Center" Style="{StaticResource LabelStyle}"/>
             <Button x:Name="CreateSaleButton"
                     Content="Create Sale"
-                Style="{StaticResource ElementStyle}"
-                    Click="CreateSaleButton_Click"/>
+                    Style="{StaticResource ButtonColorStyle}"
+                    Click="CreateSaleButton_Click"
+                    Template="{StaticResource ButtonTemplate}"/>
             <Button x:Name="SaleButton"
                     Content="Sale"
-                    Style="{StaticResource ElementStyle}"
-                    Click="SaleButton_Click"/>
+                    Style="{StaticResource ButtonColorStyle}"
+                    Click="SaleButton_Click"
+                    Template="{StaticResource ButtonTemplate}"/>
         </StackPanel>
         <Frame x:Name="FrameTable" Grid.Column="1">
-            
+
         </Frame>
         <TextBlock Background="Black" Grid.Column="1"/>
     </Grid>

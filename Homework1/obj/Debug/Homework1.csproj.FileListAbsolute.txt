@@ -18,6 +18,5 @@ C:\Users\MrGooseman\source\repos\Homework1\Homework1\obj\Debug\LoginWindow.baml
 C:\Users\MrGooseman\source\repos\Homework1\Homework1\obj\Debug\Styles\ButtonStyle.baml
 C:\Users\MrGooseman\source\repos\Homework1\Homework1\obj\Debug\MainWindow.g.cs
 C:\Users\MrGooseman\source\repos\Homework1\Homework1\obj\Debug\MainWindow.baml
-C:\Users\MrGooseman\source\repos\Homework1\Homework1\obj\Debug\Pages\CreateSalePage.baml
 C:\Users\MrGooseman\source\repos\Homework1\Homework1\obj\Debug\CreateSaleWindow.g.cs
 C:\Users\MrGooseman\source\repos\Homework1\Homework1\obj\Debug\CreateSaleWindow.baml

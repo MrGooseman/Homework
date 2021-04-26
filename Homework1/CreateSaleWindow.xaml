@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="CreateSaleWindow" Height="300" Width="400" ResizeMode="NoResize">
     <Window.Resources>
-        <ControlTemplate TargetType="Button" x:Key="btTemplate">
+        <ControlTemplate TargetType="Button" x:Key="ButtonTemplate">
             <Border CornerRadius="35"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
@@ -18,6 +18,15 @@
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                 Content="{TemplateBinding Content}" />
+            </Border>
+        </ControlTemplate>
+        <ControlTemplate TargetType="TextBox" x:Key="Border">
+            <Border CornerRadius="35"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Height="{TemplateBinding Height}"
+                    Width="{TemplateBinding Width}" 
+                    Background="#00985f">
+                <ContentControl VerticalAlignment="Center" Height="48" />
             </Border>
         </ControlTemplate>
     </Window.Resources>
@@ -36,24 +45,47 @@
             <RowDefinition Height="1"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+
         <Label Content="Enter the name of product: " Style="{StaticResource LabelStyle}"/>
         <Label Content="Value: " Grid.Row="2" Style="{StaticResource LabelStyle}"/>
         <Label Content="Price: " Grid.Row="4" Style="{StaticResource LabelStyle}"/>
-        <TextBox x:Name="nameText" Grid.Column="2" Style="{StaticResource TextBoxStyle}"/>
-        <TextBox x:Name="valueText" Grid.Column="2" Grid.Row="2" Style="{StaticResource TextBoxStyle}"/>
-        <TextBox x:Name="priceText" Grid.Column="2" Grid.Row="4" Style="{StaticResource TextBoxStyle}"/>
+
+        <TextBox x:Name="nameText" 
+                 Grid.Column="2" 
+                 Style="{StaticResource CornerTextBox}" 
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center"
+                 Margin="10"
+                 Background="#00985f"/>
+        <TextBox x:Name="valueText" 
+                 Grid.Column="2" 
+                 Grid.Row="2" 
+                 Style="{StaticResource CornerTextBox}" 
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center"
+                 Background="#00985f"
+                 Margin="10"/>
+        <TextBox x:Name="priceText" 
+                 Grid.Column="2" 
+                 Grid.Row="4" 
+                 Style="{StaticResource CornerTextBox}" 
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center"
+                 Background="#00985f"
+                 Margin="10,10,10,9"/>
+
         <Button x:Name="CloseButton" 
                 Content="Close" 
                 Grid.Row="6"
                 Style="{StaticResource ButtonColorStyle}"
                 Click="CloseButton_Click"
-                Template="{StaticResource btTemplate}" Margin="10"/>
+                Template="{StaticResource ButtonTemplate}" Margin="10"/>
         <Button x:Name="CreateButton" 
                 Content="Create"
                 Grid.Row="6" Grid.Column="2"
                 Style="{StaticResource ButtonColorStyle}" 
                 Click="CreateButton_Click" 
-                Template="{StaticResource btTemplate}" Margin="10"/>
+                Template="{StaticResource ButtonTemplate}" Margin="10"/>
         <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Background="Black"/>
         <TextBlock Grid.Row="3" Grid.ColumnSpan="3" Background="Black"/>
         <TextBlock Grid.Row="5" Grid.ColumnSpan="3" Background="Black"/>

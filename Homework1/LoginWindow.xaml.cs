@@ -23,6 +23,7 @@ namespace Homework1
         public LoginWindow()
         {
             InitializeComponent();
+            LoginTextBox.Focus();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -64,6 +65,11 @@ namespace Homework1
             PassBox.Password = PassTextBox.Text;
             PassTextBox.Visibility = Visibility.Hidden;
             PassBox.Visibility = Visibility.Visible;
+        }
+
+        private void LoginTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) LoginButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         }
     }
 }

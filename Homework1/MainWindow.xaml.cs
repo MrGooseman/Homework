@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,14 +16,12 @@ using System.Windows.Shapes;
 
 namespace Homework1
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            //ProfileImage.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/admin.png"));
         }
         public MainWindow(string _login)
         {

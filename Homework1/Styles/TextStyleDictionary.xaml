@@ -16,4 +16,13 @@
             <Setter Property="BorderThickness" Value="0"/>
         </Style.Setters>
     </Style>
+    <Style x:Key="CornerTextBox" TargetType="{x:Type TextBox}">
+        <Style.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="35" />
+                <Setter Property="VerticalAlignment" Value="Stretch"/>
+                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            </Style>
+        </Style.Resources>
+    </Style>
 </ResourceDictionary>

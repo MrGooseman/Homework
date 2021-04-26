@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Homework1"
         mc:Ignorable="d"
-        Title="LogIn Window" Height="411" Width="574">
+        Title="LogIn Window" Height="502" Width="650" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ControlTemplate TargetType="Button" x:Key="ButtonTemplate">
             <Border CornerRadius="35"
@@ -25,7 +25,7 @@
         <Grid HorizontalAlignment="Center" 
               VerticalAlignment="Center"
               Width="300"
-              Height="94" Margin="133,142,133,118">
+              Height="94" Margin="133,142,133,118" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -39,20 +39,25 @@
             </Grid.RowDefinitions>
             <Label Content="Login:" Style="{StaticResource LabelStyle}"/>
             <Label Grid.Row="2" Content="Password:" Style="{StaticResource LabelStyle}"/>
-            <TextBox x:Name="LoginTextBox" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+            <TextBox x:Name="LoginTextBox"
+                     Grid.Column="1" 
+                     Style="{StaticResource TextBoxStyle}" 
+                     KeyDown="LoginTextBox_KeyDown"/>
             <TextBox x:Name="PassTextBox"
                      Grid.Column="1" Grid.Row="2" 
                      Style="{StaticResource TextBoxStyle}"
-                     Visibility="Hidden"/>
+                     Visibility="Hidden"
+                     KeyDown="LoginTextBox_KeyDown"/>
             <TextBlock Grid.Row="1" Background="Black" Grid.ColumnSpan="2"/>
             <TextBlock Grid.Row="3" Background="Black" Grid.ColumnSpan="2"/>
-            <PasswordBox x:Name="PassBox" Grid.Column="1" Grid.Row="2" Style="{StaticResource TextBoxStyle}"/>
+            <PasswordBox x:Name="PassBox" Grid.Column="1" Grid.Row="2" Style="{StaticResource TextBoxStyle}"
+                         KeyDown="LoginTextBox_KeyDown"/>
             <CheckBox Content="Show password" 
                       Grid.Row="5" Grid.Column="1"
                       Checked="CheckBox_Checked" 
                       Unchecked="CheckBox_Unchecked"/>
         </Grid>
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="300" Height="40">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="300" Height="40" Grid.ColumnSpan="2" Margin="133,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
