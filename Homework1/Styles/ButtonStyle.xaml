@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Homework1.Styles">
+    <Style x:Key="ButtonColorStyle" TargetType="Button">
+        <Style.Setters>
+            <Setter Property="Background" Value="#e0001a"/>
+            <Setter Property="Foreground" Value="#333333"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="ElementStyle" TargetType="Button">
+        <Style.Setters>
+            <Setter Property="Background" Value="#00985f"/>
+            <Setter Property="Foreground" Value="#333333"/>
+        </Style.Setters>
+    </Style>
+</ResourceDictionary>
