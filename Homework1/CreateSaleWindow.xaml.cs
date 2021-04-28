@@ -30,23 +30,23 @@ namespace Homework1
         }
         public string getName()
         {
-            return nameText.Text;
+            return ClientNameText.Text;
         }
         public int getValue()
         {
-            return Convert.ToInt32(valueText.Text);
+            return Convert.ToInt32(ValueText.Text);
         }
         public double getPrice()
         {
-            return Convert.ToDouble(priceText.Text);
+            return Convert.ToDouble(PriceText.Text);
         }
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (nameText.Text != "" && valueText.Text != "" && priceText.Text != "")
+            if (ClientNameText.Text != "" && ValueText.Text != "" && PriceText.Text != "")
             {
-                //MainWindow window = new MainWindow();
-                //window.Show();
+                MainWindow window = new MainWindow();
+                window.Show();
                 DialogResult = true;
             }
             else

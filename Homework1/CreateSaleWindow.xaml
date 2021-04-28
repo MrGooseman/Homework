@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Homework1"
         mc:Ignorable="d"
-        Title="CreateSaleWindow" Height="300" Width="400" ResizeMode="NoResize">
+        Title="CreateSaleWindow" Height="400" Width="400" ResizeMode="NoResize">
     <Window.Resources>
         <ControlTemplate TargetType="Button" x:Key="ButtonTemplate">
             <Border CornerRadius="35"
@@ -44,30 +44,41 @@
             <RowDefinition/>
             <RowDefinition Height="1"/>
             <RowDefinition/>
+            <RowDefinition Height="1"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label Content="Enter the name of product: " Style="{StaticResource LabelStyle}"/>
-        <Label Content="Value: " Grid.Row="2" Style="{StaticResource LabelStyle}"/>
-        <Label Content="Price: " Grid.Row="4" Style="{StaticResource LabelStyle}"/>
+        <Label Content="Enter the name of product: " Grid.Row="2" Style="{StaticResource LabelStyle}"/>
+        <Label Content="Value: " Grid.Row="4" Style="{StaticResource LabelStyle}"/>
+        <Label Content="Price: " Grid.Row="6" Style="{StaticResource LabelStyle}"/>
+        <Label Content="Name of client: " Style="{StaticResource LabelStyle}"/>
 
-        <TextBox x:Name="nameText" 
+        <TextBox x:Name="ClientNameText" 
                  Grid.Column="2" 
                  Style="{StaticResource CornerTextBox}" 
                  VerticalContentAlignment="Center"
                  HorizontalContentAlignment="Center"
                  Margin="10"
                  Background="#00985f"/>
-        <TextBox x:Name="valueText" 
+        <TextBox x:Name="ProductNameText" 
+                 Grid.Row="2"
                  Grid.Column="2" 
-                 Grid.Row="2" 
+                 Style="{StaticResource CornerTextBox}" 
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center"
+                 Margin="10"
+                 Background="#00985f"/>
+        <TextBox x:Name="ValueText" 
+                 Grid.Column="2" 
+                 Grid.Row="4" 
                  Style="{StaticResource CornerTextBox}" 
                  VerticalContentAlignment="Center"
                  HorizontalContentAlignment="Center"
                  Background="#00985f"
                  Margin="10"/>
-        <TextBox x:Name="priceText" 
+        <TextBox x:Name="PriceText" 
                  Grid.Column="2" 
-                 Grid.Row="4" 
+                 Grid.Row="6" 
                  Style="{StaticResource CornerTextBox}" 
                  VerticalContentAlignment="Center"
                  HorizontalContentAlignment="Center"
@@ -76,19 +87,20 @@
 
         <Button x:Name="CloseButton" 
                 Content="Close" 
-                Grid.Row="6"
+                Grid.Row="8"
                 Style="{StaticResource ButtonColorStyle}"
                 Click="CloseButton_Click"
                 Template="{StaticResource ButtonTemplate}" Margin="10"/>
         <Button x:Name="CreateButton" 
                 Content="Create"
-                Grid.Row="6" Grid.Column="2"
+                Grid.Row="8" Grid.Column="2"
                 Style="{StaticResource ButtonColorStyle}" 
                 Click="CreateButton_Click" 
                 Template="{StaticResource ButtonTemplate}" Margin="10"/>
         <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Background="Black"/>
         <TextBlock Grid.Row="3" Grid.ColumnSpan="3" Background="Black"/>
         <TextBlock Grid.Row="5" Grid.ColumnSpan="3" Background="Black"/>
+        <TextBlock Grid.Row="7" Grid.ColumnSpan="3" Background="Black"/>
         <TextBlock Grid.Row="0" Grid.Column="1" Grid.RowSpan="7"  Background="Black"/>
     </Grid>
 </Window>

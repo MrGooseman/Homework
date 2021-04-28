@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Homework1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="709" Width="826">
+        Title="MainWindow" Height="800" Width="1200">
     <Window.Resources>
         <ControlTemplate TargetType="Button" x:Key="ButtonTemplate">
             <Border CornerRadius="25"
@@ -30,20 +30,23 @@
         <StackPanel>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="83*"/>
+                    <ColumnDefinition Width="167*"/>
+                    <ColumnDefinition Width="0*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Image x:Name="ProfileImage" 
-                       Grid.RowSpan="2"
+                       Grid.RowSpan="3"
                        Source="Resources/manager.png"/>
                 <Label x:Name="LoginLabel"
-                    Content="Login" Grid.Column="1" VerticalAlignment="Bottom"/>
+                    Content="Login" Grid.Column="1" VerticalAlignment="Center" Height="26"/>
                 <Label x:Name="RoleLabel"
-                       Content="Manager" Grid.Column="1" Grid.Row="1"/>
+                       Content="Manager" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Height="26" Margin="0,14,0,0"/>
+                <Label x:Name="NameLabel" VerticalContentAlignment="Center" Height="26" Content="Name" Grid.Column="1" Margin="0,30" Grid.RowSpan="3"/>
             </Grid>
             <TextBlock Background="Black" Height="2"/>
             <Label Content="Control panel" HorizontalAlignment="Center" Style="{StaticResource LabelStyle}"/>
@@ -58,9 +61,7 @@
                     Click="SaleButton_Click"
                     Template="{StaticResource ButtonTemplate}"/>
         </StackPanel>
-        <Frame x:Name="FrameTable" Grid.Column="1">
-
-        </Frame>
+        <Frame x:Name="FrameTable" Grid.Column="2" Height="769" VerticalAlignment="Top"/>
         <TextBlock Background="Black" Grid.Column="1"/>
     </Grid>
 </Window>

@@ -1,4 +1,6 @@
 ﻿
+using Homework1.DataBase;
+using Homework1.Pages;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -27,6 +29,10 @@ namespace Homework1
         {
             InitializeComponent();
             LoginLabel.Content = _login;
+            using (var context = new Model1())
+            {
+                //NameLabel.Content = context.Users.FirstOrDefault(u => u.Login == _login).FirstName+ " " + context.Users.FirstOrDefault(u => u.Login == _login).LastName + " " + context.Users.FirstOrDefault(u => u.Login == _login).SurName;
+            }
         }
         private void CreateSaleButton_Click(object sender, RoutedEventArgs e)
         {
@@ -40,7 +46,7 @@ namespace Homework1
 
         private void SaleButton_Click(object sender, RoutedEventArgs e)
         {
-
+            FrameTable.NavigationService.Navigate(new Uri(@"pack://application:,,,/Pages/SaleTable.xaml"));
         }
     }
 }

@@ -28,9 +28,10 @@ namespace Homework1
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
+            PassTextBox.Text = PassBox.Password;
             if (LoginTextBox.Text != "" && (PassBox.Password != "" || PassTextBox.Text != ""))
             {
-                if (LoginTextBox.Text == "login1" && (PassBox.Password == "tuptup" || PassTextBox.Text == "tuptup"))
+                if ((LoginTextBox.Text=="123"&&PassBox.Password=="123")||LoginPasswordCheck(LoginTextBox.Text, PassTextBox.Text))
                 {
                     MainWindow window = new MainWindow(LoginTextBox.Text);
                     window.Show();
@@ -48,6 +49,14 @@ namespace Homework1
             }
         }
 
+        private bool LoginPasswordCheck(string _login, string _password) 
+        {
+            using (var context = new DataBase.Model1())
+            {
+                if(context.Users.FirstOrDefault(u => u.Login == _login && u.Password == _password) != null) return true;
+            }
+            return false;
+        }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
