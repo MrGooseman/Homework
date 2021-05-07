@@ -12,28 +12,28 @@ namespace Homework1.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Client()
         {
-            Sale = new HashSet<Sale>();
+            Sale_Item = new HashSet<Sale_Item>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
+
+        [Required]
+        [StringLength(30)]
+        public string SurName { get; set; }
 
         [Required]
         [StringLength(30)]
         public string FirstName { get; set; }
 
-        [StringLength(30)]
-        public string LastName { get; set; }
-
         [Required]
         [StringLength(30)]
-        public string SurName { get; set; }
+        public string LastName { get; set; }
 
         public int? User_ID { get; set; }
 
         public virtual Users Users { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sale> Sale { get; set; }
+        public virtual ICollection<Sale_Item> Sale_Item { get; set; }
     }
 }

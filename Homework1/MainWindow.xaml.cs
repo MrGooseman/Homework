@@ -23,20 +23,15 @@ namespace Homework1
         public MainWindow()
         {
             InitializeComponent();
-            //ProfileImage.Source = new BitmapImage(new Uri(@"pack://application:,,,/Resources/admin.png"));
+            CurrentUserData data = new CurrentUserData();
+            LoginLabel.Content = data.Login;
+            SurNameLabel.Content = data.SurName;
+            NameLabel.Content = data.FirstName;
+            LastNameLabel.Content = data.LastName;
         }
-        public MainWindow(string _login)
-        {
-            InitializeComponent();
-            LoginLabel.Content = _login;
-            using (var context = new Model1())
-            {
-                //NameLabel.Content = context.Users.FirstOrDefault(u => u.Login == _login).FirstName+ " " + context.Users.FirstOrDefault(u => u.Login == _login).LastName + " " + context.Users.FirstOrDefault(u => u.Login == _login).SurName;
-            }
-        }
+        
         private void CreateSaleButton_Click(object sender, RoutedEventArgs e)
         {
-            //FrameTable.NavigationService.Navigate(new Uri("pack://application:,,,/Pages/CreateSalePage.xaml"));
             CreateSaleWindow window = new CreateSaleWindow();
             if(window.ShowDialog()==true)
             {

@@ -14,7 +14,6 @@ namespace Homework1.DataBase
             Client = new HashSet<Client>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
 
         [Required]

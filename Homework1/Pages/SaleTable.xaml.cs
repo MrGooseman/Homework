@@ -2,6 +2,7 @@
 using Homework1.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -18,9 +19,6 @@ using System.Windows.Shapes;
 
 namespace Homework1.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для SaleTable.xaml
-    /// </summary>
     public partial class SaleTable : Page
     {
         public SaleTable()
@@ -28,21 +26,71 @@ namespace Homework1.Pages
             InitializeComponent();
             using (var context = new Model1())
             {
-                context.Sale.Load();
-                context.Client.Load();
+                context.Sale_Item.Load();
                 context.Item.Load();
-                context.Sale_Items.Load();
-                context.Client_Sales.Load();
-                var sl = from s in context.Sale
-                         join cl in context.Client_Sales on new { x1=s.ID } equals new { x1=cl.Sale_ID }
-                         join c in context.Client on new { x1=cl.Client_ID } equals new { x1=c.ID }
-                         join si in context.Sale_Items on new { x1=s.ID } equals new { x1=si.Sale_ID }
-                         join i in context.Item on new { x1=si.Item_ID } equals new { x1=i.ID }
-                         orderby new { i.ID }
-                         select new { s.ID, c.FirstName, i.Name, i.Price };
-                DBDataGrid.ItemsSource = sl.ToList();
-            }
+                context.Client.Load();
+                DBDataGrid.ItemsSource =(from s in context.Sale_Item.Local
+                                          join c in context.Client.Local on s.ID equals c.ID
+                                          join i in context.Item.Local on s.ID equals i.ID
+                                          select new
+                                          {
+                                              s.ID,
+                                              c.FirstName,
+                                              c.LastName,
+                                              c.SurName,
+                                              i.Name,
+                                              i.Price
+                                          });
 
+            }
+        }
+
+        private void IDSort_Selected(object sender, RoutedEventArgs e)
+        {
+            using (var context = new Model1())
+            {
+                context.Sale_Item.Load();
+                context.Item.Load();
+                context.Client.Load();
+                DBDataGrid.ItemsSource = (from s in context.Sale_Item.Local
+                                          join c in context.Client.Local on s.ID equals c.ID
+                                          join i in context.Item.Local on s.ID equals i.ID
+                                          orderby s.ID
+                                          select new
+                                          {
+                                              s.ID,
+                                              c.FirstName,
+                                              c.LastName,
+                                              c.SurName,
+                                              i.Name,
+                                              i.Price
+                                          });
+
+            }
+        }
+
+        private void ItemNameSort_Selected(object sender, RoutedEventArgs e)
+        {
+            using (var context = new Model1())
+            {
+                context.Sale_Item.Load();
+                context.Item.Load();
+                context.Client.Load();
+                DBDataGrid.ItemsSource = (from s in context.Sale_Item.Local
+                                          join c in context.Client.Local on s.ID equals c.ID
+                                          join i in context.Item.Local on s.ID equals i.ID
+                                          orderby i.Name
+                                          select new
+                                          {
+                                              s.ID,
+                                              c.FirstName,
+                                              c.LastName,
+                                              c.SurName,
+                                              i.Name,
+                                              i.Price
+                                          });
+
+            }
         }
     }
 }

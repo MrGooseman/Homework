@@ -9,19 +9,17 @@ using System.Threading.Tasks;
 
 namespace Homework1.ViewModels
 {
-    public class DataGridDBViewModel
+    class ItemsComboBoxClass
     {
-        public ObservableCollection<FinalTable> db { get; set; }
-        public FinalTable SelectedModel { get; set; }
-
-        public DataGridDBViewModel()
+        public ItemsComboBoxClass()
         {
-            db = new ObservableCollection<FinalTable>();
-
             using (var context = new Model1())
             {
-                
+                context.Item.Load();
+                Items = new ObservableCollection<Item>(context.Item.Local.ToList());
             }
         }
+        public ObservableCollection<Item> Items { get; set; }
+        public Item SelectedItem { get; set; }
     }
 }

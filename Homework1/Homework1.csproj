@@ -66,16 +66,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CurrentUserData.cs" />
     <Compile Include="DataBase\Client.cs" />
     <Compile Include="DataBase\Item.cs" />
     <Compile Include="DataBase\Model1.cs" />
-    <Compile Include="DataBase\Sale.cs" />
+    <Compile Include="DataBase\Sale_Item.cs" />
     <Compile Include="DataBase\Users.cs" />
-    <Compile Include="DataBase\Client_Sales.cs" />
-    <Compile Include="DataBase\Sale_Items.cs" />
-    <Compile Include="ViewModels\DataGridDBViewModel.cs" />
-    <Compile Include="ViewModels\DBModel.cs" />
-    <Compile Include="ViewModels\Tables.cs" />
+    <Compile Include="ViewModels\ItemsComboBoxClass.cs" />
     <Page Include="CreateSaleWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -104,6 +101,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ComboBoxStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

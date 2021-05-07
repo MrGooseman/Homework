@@ -16,7 +16,7 @@
             <Setter Property="BorderThickness" Value="0"/>
         </Style.Setters>
     </Style>
-    <Style x:Key="CornerTextBox" TargetType="{x:Type TextBox}">
+    <Style x:Key="CornerTextBox" TargetType="{x:Type Control}">
         <Style.Resources>
             <Style TargetType="{x:Type Border}">
                 <Setter Property="CornerRadius" Value="35" />
@@ -24,5 +24,12 @@
                 <Setter Property="HorizontalAlignment" Value="Stretch"/>
             </Style>
         </Style.Resources>
+    </Style>
+    <Style TargetType="ComboBox">
+        <Style.Setters>
+            <Setter Property="Background" Value="#00985f"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style.Setters>
     </Style>
 </ResourceDictionary>

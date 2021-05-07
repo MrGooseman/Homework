@@ -13,11 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Homework1
-{
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
+namespace Homework1 
+{ 
     public partial class LoginWindow : Window
     {
         public LoginWindow()
@@ -31,9 +28,9 @@ namespace Homework1
             PassTextBox.Text = PassBox.Password;
             if (LoginTextBox.Text != "" && (PassBox.Password != "" || PassTextBox.Text != ""))
             {
-                if ((LoginTextBox.Text=="123"&&PassBox.Password=="123")||LoginPasswordCheck(LoginTextBox.Text, PassTextBox.Text))
+                if ((LoginTextBox.Text == "123" && PassBox.Password == "123") || LoginPasswordCheck(LoginTextBox.Text, PassTextBox.Text))
                 {
-                    MainWindow window = new MainWindow(LoginTextBox.Text);
+                    MainWindow window = new MainWindow();
                     window.Show();
                     Close();
                 }
@@ -49,11 +46,21 @@ namespace Homework1
             }
         }
 
-        private bool LoginPasswordCheck(string _login, string _password) 
+        private bool LoginPasswordCheck(string _login, string _password)
         {
             using (var context = new DataBase.Model1())
             {
-                if(context.Users.FirstOrDefault(u => u.Login == _login && u.Password == _password) != null) return true;
+
+                if (context.Users.FirstOrDefault(u => u.Login == _login && u.Password == _password) != null)
+                {
+                    CurrentUserData data = new CurrentUserData();
+                    data.ID = context.Users.FirstOrDefault(p => p.Login == _login).ID;
+                    data.FirstName = context.Users.FirstOrDefault(p => p.Login == _login).FirstName;
+                    data.LastName = context.Users.FirstOrDefault(p => p.Login == _login).LastName;
+                    data.SurName = context.Users.FirstOrDefault(p => p.Login == _login).SurName;
+                    data.Login = context.Users.FirstOrDefault(p => p.Login == _login).Login;
+                    return true;
+                }
             }
             return false;
         }
@@ -82,3 +89,5 @@ namespace Homework1
         }
     }
 }
+
+

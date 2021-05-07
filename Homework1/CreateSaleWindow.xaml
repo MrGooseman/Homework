@@ -3,9 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Homework1.ViewModels"
         xmlns:local="clr-namespace:Homework1"
         mc:Ignorable="d"
-        Title="CreateSaleWindow" Height="400" Width="400" ResizeMode="NoResize">
+        Title="CreateSaleWindow" Height="400" Width="630.425" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+
+    <Window.DataContext>
+        <vm:ItemsComboBoxClass x:Name="ComboBoxViewModel"/>
+    </Window.DataContext>
+    
     <Window.Resources>
         <ControlTemplate TargetType="Button" x:Key="ButtonTemplate">
             <Border CornerRadius="35"
@@ -20,7 +26,7 @@
                                 Content="{TemplateBinding Content}" />
             </Border>
         </ControlTemplate>
-        <ControlTemplate TargetType="TextBox" x:Key="Border">
+        <ControlTemplate TargetType="Control" x:Key="Border">
             <Border CornerRadius="35"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     Height="{TemplateBinding Height}"
@@ -46,23 +52,35 @@
             <RowDefinition/>
             <RowDefinition Height="1"/>
             <RowDefinition/>
+            <RowDefinition Height="1"/>
+            <RowDefinition/>
+            <RowDefinition Height="1"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Enter the name of product: " Grid.Row="2" Style="{StaticResource LabelStyle}"/>
-        <Label Content="Value: " Grid.Row="4" Style="{StaticResource LabelStyle}"/>
-        <Label Content="Price: " Grid.Row="6" Style="{StaticResource LabelStyle}"/>
-        <Label Content="Name of client: " Style="{StaticResource LabelStyle}"/>
+        <Label Content="Choose product: " Grid.Row="6" Style="{StaticResource LabelStyle}"/>
+        <Label Content="Value: " Grid.Row="8" Style="{StaticResource LabelStyle}"/>
+        <Label Content="SurName: " Style="{StaticResource LabelStyle}"/>
+        <Label Content="FirstName: " Grid.Row="2" Style="{StaticResource LabelStyle}"/>
+        <Label Content="LastName: " Grid.Row="4" Style="{StaticResource LabelStyle}"/>
 
-        <TextBox x:Name="ClientNameText" 
+        <TextBox x:Name="ClientSurNameText" 
                  Grid.Column="2" 
                  Style="{StaticResource CornerTextBox}" 
                  VerticalContentAlignment="Center"
                  HorizontalContentAlignment="Center"
                  Margin="10"
                  Background="#00985f"/>
-        <TextBox x:Name="ProductNameText" 
+        <TextBox x:Name="ClientFirstNameText" 
+                 Grid.Column="2"
                  Grid.Row="2"
+                 Style="{StaticResource CornerTextBox}" 
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Center"
+                 Margin="10"
+                 Background="#00985f"/>
+        <TextBox x:Name="ClientLastNameText" 
                  Grid.Column="2" 
+                 Grid.Row="4"
                  Style="{StaticResource CornerTextBox}" 
                  VerticalContentAlignment="Center"
                  HorizontalContentAlignment="Center"
@@ -70,30 +88,35 @@
                  Background="#00985f"/>
         <TextBox x:Name="ValueText" 
                  Grid.Column="2" 
-                 Grid.Row="4" 
+                 Grid.Row="8" 
+                 PreviewTextInput="ValueText_TextInput"
+                 PreviewKeyDown="ValueText_PreviewKeyDown"
                  Style="{StaticResource CornerTextBox}" 
                  VerticalContentAlignment="Center"
                  HorizontalContentAlignment="Center"
                  Background="#00985f"
                  Margin="10"/>
-        <TextBox x:Name="PriceText" 
-                 Grid.Column="2" 
-                 Grid.Row="6" 
-                 Style="{StaticResource CornerTextBox}" 
-                 VerticalContentAlignment="Center"
-                 HorizontalContentAlignment="Center"
-                 Background="#00985f"
-                 Margin="10,10,10,9"/>
+
+        <ComboBox x:Name="ComboBoxBox" 
+                  Grid.Column="2" Grid.Row="6" Margin="15, 15" 
+                  ItemsSource="{Binding Items}"
+                  SelectedItem="{Binding SelectedItem}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
         <Button x:Name="CloseButton" 
                 Content="Close" 
-                Grid.Row="8"
+                Grid.Row="10"
                 Style="{StaticResource ButtonColorStyle}"
                 Click="CloseButton_Click"
                 Template="{StaticResource ButtonTemplate}" Margin="10"/>
         <Button x:Name="CreateButton" 
                 Content="Create"
-                Grid.Row="8" Grid.Column="2"
+                Grid.Row="10" Grid.Column="2"
                 Style="{StaticResource ButtonColorStyle}" 
                 Click="CreateButton_Click" 
                 Template="{StaticResource ButtonTemplate}" Margin="10"/>
@@ -101,6 +124,7 @@
         <TextBlock Grid.Row="3" Grid.ColumnSpan="3" Background="Black"/>
         <TextBlock Grid.Row="5" Grid.ColumnSpan="3" Background="Black"/>
         <TextBlock Grid.Row="7" Grid.ColumnSpan="3" Background="Black"/>
-        <TextBlock Grid.Row="0" Grid.Column="1" Grid.RowSpan="7"  Background="Black"/>
+        <TextBlock Grid.Row="9" Grid.ColumnSpan="3" Background="Black"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Grid.RowSpan="12"  Background="Black"/>
     </Grid>
 </Window>

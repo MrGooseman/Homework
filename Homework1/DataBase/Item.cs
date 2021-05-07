@@ -12,10 +12,9 @@ namespace Homework1.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Item()
         {
-            Sale = new HashSet<Sale>();
+            Sale_Item = new HashSet<Sale_Item>();
         }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
 
         [Required]
@@ -28,6 +27,6 @@ namespace Homework1.DataBase
         public string Decription { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sale> Sale { get; set; }
+        public virtual ICollection<Sale_Item> Sale_Item { get; set; }
     }
 }
