@@ -151,6 +151,11 @@
     <Resource Include="Resources\client.png" />
     <Resource Include="Resources\manager.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\auchan-3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logotype.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
