@@ -23,11 +23,10 @@ namespace Homework1
         public MainWindow()
         {
             InitializeComponent();
-            CurrentUserData data = new CurrentUserData();
-            LoginLabel.Content = data.Login;
-            SurNameLabel.Content = data.SurName;
-            NameLabel.Content = data.FirstName;
-            LastNameLabel.Content = data.LastName;
+            LoginLabel.Content = CurrentUserData.Login;
+            SurNameLabel.Content = CurrentUserData.SurName;
+            NameLabel.Content = CurrentUserData.FirstName;
+            LastNameLabel.Content = CurrentUserData.LastName;
         }
         
         private void CreateSaleButton_Click(object sender, RoutedEventArgs e)

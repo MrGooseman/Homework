@@ -62,9 +62,10 @@ namespace Homework1
                     if (sale.Sale_ID > sale_ID) sale_ID = sale.Sale_ID;
                 }
                 MessageBox.Show(sale_ID.ToString(), "Sale_ID");
+
                 for (int i = 0; i < Convert.ToInt32(ValueText.Text); i++)
                 {
-                    cont.Sale_Item.Add(new Sale_Item() { Sale_ID = sale_ID, Item=ComboBoxViewModel.SelectedItem });
+                    cont.Sale_Item.Add(new Sale_Item() { Sale_ID = sale_ID, Item_ID=ComboBoxViewModel.SelectedItem.ID });
                 }
                 cont.SaveChanges();
             }
@@ -83,7 +84,7 @@ namespace Homework1
 
         private void ValueText_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.D0 || e.Key == Key.D1 || e.Key == Key.D2 || e.Key == Key.D3 || e.Key == Key.D4 || e.Key == Key.D5 || e.Key == Key.D6 || e.Key == Key.D7 || e.Key == Key.D8 || e.Key == Key.D9)
+            if (e.Key == Key.D0 || e.Key==Key.Back || e.Key == Key.D1 || e.Key == Key.D2 || e.Key == Key.D3 || e.Key == Key.D4 || e.Key == Key.D5 || e.Key == Key.D6 || e.Key == Key.D7 || e.Key == Key.D8 || e.Key == Key.D9)
             {
             }
             else

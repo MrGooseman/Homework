@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Homework1.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,7 @@ namespace Homework1
             {
                 if ((LoginTextBox.Text == "123" && PassBox.Password == "123") || LoginPasswordCheck(LoginTextBox.Text, PassTextBox.Text))
                 {
+                    
                     MainWindow window = new MainWindow();
                     window.Show();
                     Close();
@@ -53,12 +55,11 @@ namespace Homework1
 
                 if (context.Users.FirstOrDefault(u => u.Login == _login && u.Password == _password) != null)
                 {
-                    CurrentUserData data = new CurrentUserData();
-                    data.ID = context.Users.FirstOrDefault(p => p.Login == _login).ID;
-                    data.FirstName = context.Users.FirstOrDefault(p => p.Login == _login).FirstName;
-                    data.LastName = context.Users.FirstOrDefault(p => p.Login == _login).LastName;
-                    data.SurName = context.Users.FirstOrDefault(p => p.Login == _login).SurName;
-                    data.Login = context.Users.FirstOrDefault(p => p.Login == _login).Login;
+                    CurrentUserData.ID = context.Users.FirstOrDefault(p => p.Login == _login).ID;
+                    CurrentUserData.FirstName = context.Users.FirstOrDefault(p => p.Login == _login).FirstName;
+                    CurrentUserData.LastName = context.Users.FirstOrDefault(p => p.Login == _login).LastName;
+                    CurrentUserData.SurName = context.Users.FirstOrDefault(p => p.Login == _login).SurName;
+                    CurrentUserData.Login = context.Users.FirstOrDefault(p => p.Login == _login).Login;
                     return true;
                 }
             }
